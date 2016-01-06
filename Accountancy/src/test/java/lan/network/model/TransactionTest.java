@@ -1,6 +1,12 @@
 package lan.network.model;
 
 import java.math.BigDecimal;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -41,12 +47,20 @@ public class TransactionTest {
 		Assert.assertTrue(transaction.getEntries().isEmpty());
 	}
 	
-	public void example(){
+	@Test
+	public void aTransactionIsInEquilibrium(){
+		ValidatorFactory vf = Validation.buildDefaultValidatorFactory();
+		Validator validator = vf.getValidator();
+		Account account = new Account();
+		account.setNumber(44000);
+		account.setDescription("leveranciers");
+		Entry entry = new Entry();
+		entry.setAccount(account);
+		entry.setCredit(BigDecimal.TEN);
 		Transaction transaction = new Transaction();
-		transaction.add(new Entry(new Account(), new BigDecimal("10"), new BigDecimal("0")));
-		transaction.add(new Entry(new Account(), new BigDecimal("0"), new BigDecimal("10")));
-		
+		transaction.add(entry);
+		Set<ConstraintViolation<Transaction>> constraints = validator.validate(transaction);
+		Assert.assertEquals(1, constraints.size());
 	}
-	
 	
 }

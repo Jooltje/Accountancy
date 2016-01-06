@@ -3,7 +3,9 @@ package lan.network.model;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import lan.network.validation.Equilibrium;
 
+@Equilibrium
 public class Transaction {
 
 	private List<Entry> entries;
