@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<title>My HTML File</title>
+<!-- <link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="css/app.css">  -->
+<script src="javascript/angular.js"></script>
+<script src="javascript/application.js"></script>
+</head>
+<body>
+
+	<div ng-controller="TransactionController">
+		<div class="entry" ng-repeat="entry in transaction">
+			<input value="{{entry.account}}" /> <input value="{{entry.debet}}" />
+			<input value="{{entry.credit}}" /> <input value="{{entry.account}}" />
+			<input value="{{entry.debet}}" /> <input value="{{entry.credit}}" />
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<td>account</td>
+					<td>debet</td>
+					<td>credit</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="entry in transaction">
+					<td>{{entry.account}}</td>
+					<td>{{entry.debet}}</td>
+					<td>{{entry.credit}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<p>Nothing here {{'yet' + '!'}}</p>
+
+</body>
+</html>
