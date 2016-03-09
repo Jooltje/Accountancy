@@ -13,6 +13,7 @@ public class MyApplication extends Application {
     Set<Class<?>> classes = new HashSet<Class<?>>();
     classes.add(Webservice.class);
     classes.add(GenericResource.class);
+    classes.add(TransactionService.class);
     return classes;
   }
   
