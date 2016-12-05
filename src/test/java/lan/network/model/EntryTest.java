@@ -10,7 +10,7 @@ public class EntryTest {
 	@Test
 	public void setAccount() {
 		Entry entry = new Entry();
-		Account account = new Account();
+		Account account = new Account(44000,"leveranciers");
 		entry.setAccount(account);
 		Assert.assertEquals(account, entry.getAccount());
 	}

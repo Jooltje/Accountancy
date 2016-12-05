@@ -51,9 +51,7 @@ public class TransactionTest {
 	public void aTransactionIsInEquilibrium(){
 		ValidatorFactory vf = Validation.buildDefaultValidatorFactory();
 		Validator validator = vf.getValidator();
-		Account account = new Account();
-		account.setNumber(44000);
-		account.setDescription("leveranciers");
+		Account account = new Account(44000,"leveranciers");
 		Entry entry = new Entry();
 		entry.setAccount(account);
 		entry.setCredit(BigDecimal.TEN);
